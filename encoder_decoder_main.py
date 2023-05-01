@@ -26,12 +26,12 @@ class SamMainWindow1(QMainWindow):
         self.btn4 = QPushButton("Расшифровать существующий файл", self)
         self.btn5 = QPushButton("Дополнить существующий файл", self)
 
-        self.btn0.setStyleSheet("background-color: #443355")
-        self.btn1.setStyleSheet("background-color: #443355")
-        self.btn2.setStyleSheet("background-color: #443355")
-        self.btn3.setStyleSheet("background-color: #443355")
-        self.btn4.setStyleSheet("background-color: #443355")
-        self.btn5.setStyleSheet("background-color: #443355")
+        self.btn0.setStyleSheet("background-color: #b57a0d")
+        self.btn1.setStyleSheet("background-color: #b57a0d")
+        self.btn2.setStyleSheet("background-color: #b57a0d")
+        self.btn3.setStyleSheet("background-color: #b57a0d")
+        self.btn4.setStyleSheet("background-color: #b57a0d")
+        self.btn5.setStyleSheet("background-color: #b57a0d")
 
         self.btn0.setGeometry(50, 30, 220, 50)
         self.btn1.setGeometry(50, 100, 220, 50)
@@ -59,7 +59,7 @@ class SamMainWindow2(QMainWindow):
         self.text_in = QTextEdit(self.frame)
         self.text_in.setGeometry(0, 0, 500, 455)
         self.text_in.setPlainText("Введите текст...")
-        self.frame.setStyleSheet("background-color: #443355")
+        self.frame.setStyleSheet("background-color: #999999")
 
         self.lbl1 = QLabel("Введите код:", self)
         self.lbl1.move(542, 25)
@@ -68,11 +68,11 @@ class SamMainWindow2(QMainWindow):
         self.lbl2.move(534, 80)
 
         self.code = QLineEdit(self)
-        self.code.setStyleSheet("background-color: #443355")
+        self.code.setStyleSheet("background-color: #c75000")
         self.code.setGeometry(520, 50, 125, 30)
 
         self.x_num = QLineEdit(self)
-        self.x_num.setStyleSheet("background-color: #443355")
+        self.x_num.setStyleSheet("background-color: #c75000")
         self.x_num.move(532, 105)
 
         self.btn1 = QPushButton("Назад", self)
@@ -81,8 +81,8 @@ class SamMainWindow2(QMainWindow):
         self.btn1.clicked.connect(back01)
         self.btn2.clicked.connect(create_file)
 
-        self.btn1.setStyleSheet("background-color: #443355")
-        self.btn2.setStyleSheet("background-color: #443355")
+        self.btn1.setStyleSheet("background-color: #b57a0d")
+        self.btn2.setStyleSheet("background-color: #b57a0d")
 
         self.btn1.move(5, 465)
         self.btn2.move(545, 465)
@@ -98,14 +98,14 @@ class SamMainWindow3(QMainWindow):
         self.frame.setGeometry(5, 5, 500, 455)
         self.text_in = QTextEdit(self.frame)
         self.text_in.setGeometry(0, 0, 500, 455)
-        self.frame.setStyleSheet("background-color: #443355")
+        self.frame.setStyleSheet("background-color: #999999")
         self.text_in.setReadOnly(True)
 
         self.lbl1 = QLabel("Введите код:", self)
         self.lbl1.move(542, 25)
 
         self.code = QLineEdit(self)
-        self.code.setStyleSheet("background-color: #443355")
+        self.code.setStyleSheet("background-color: #c75000")
         self.code.setGeometry(520, 50, 125, 30)
 
         self.btn1 = QPushButton("Назад", self)
@@ -114,8 +114,8 @@ class SamMainWindow3(QMainWindow):
         self.btn1.clicked.connect(back02)
         self.btn2.clicked.connect(read_coded_file)
 
-        self.btn1.setStyleSheet("background-color: #443355")
-        self.btn2.setStyleSheet("background-color: #443355")
+        self.btn1.setStyleSheet("background-color: #b57a0d")
+        self.btn2.setStyleSheet("background-color: #b57a0d")
 
         self.btn1.move(5, 465)
         self.btn2.move(545, 465)
@@ -130,12 +130,12 @@ class SamMainWindow4(QMainWindow):
         self.using_file = ""
 
         self.btn1 = QPushButton("Выбрать файл", self)
-        self.btn1.setStyleSheet("background-color: #443355")
+        self.btn1.setStyleSheet("background-color: #b57a0d")
         self.btn1.setGeometry(195, 20, 100, 40)
         self.btn1.clicked.connect(choose_file1)
 
         self.btn2 = QPushButton("Зашифровать", self)
-        self.btn2.setStyleSheet("background-color: #443355")
+        self.btn2.setStyleSheet("background-color: #b57a0d")
         self.btn2.setGeometry(195, 60, 100, 40)
         self.btn2.clicked.connect(code_file)
 
@@ -143,18 +143,18 @@ class SamMainWindow4(QMainWindow):
         self.code_l.setGeometry(12, 20, 80, 30)
 
         self.code = QLineEdit(self)
-        self.code.setStyleSheet("background-color: #443355")
+        self.code.setStyleSheet("background-color: #c75000")
         self.code.setGeometry(40, 20, 140, 30)
 
         self.x_num_l = QLabel("X-число:", self)
         self.x_num_l.setGeometry(12, 65, 80, 30)
 
         self.x_num = QLineEdit(self)
-        self.x_num.setStyleSheet("background-color: #443355")
+        self.x_num.setStyleSheet("background-color: #c75000")
         self.x_num.setGeometry(70, 65, 70, 30)
 
         self.btn3 = QPushButton("Назад", self)
-        self.btn3.setStyleSheet("background-color: #443355")
+        self.btn3.setStyleSheet("background-color: #b57a0d")
         self.btn3.setGeometry(15, 110, 75, 30)
         self.btn3.clicked.connect(back03)
 
@@ -171,12 +171,12 @@ class SamMainWindow5(QMainWindow):
         self.using_file = ""
 
         self.btn1 = QPushButton("Выбрать файл", self)
-        self.btn1.setStyleSheet("background-color: #443355")
+        self.btn1.setStyleSheet("background-color: #b57a0d")
         self.btn1.setGeometry(195, 20, 100, 40)
         self.btn1.clicked.connect(choose_file2)
 
         self.btn2 = QPushButton("Расшифровать", self)
-        self.btn2.setStyleSheet("background-color: #443355")
+        self.btn2.setStyleSheet("background-color: #b57a0d")
         self.btn2.setGeometry(195, 60, 100, 40)
         self.btn2.clicked.connect(decode_file)
 
@@ -184,11 +184,11 @@ class SamMainWindow5(QMainWindow):
         self.code_l.setGeometry(12, 20, 80, 30)
 
         self.code = QLineEdit(self)
-        self.code.setStyleSheet("background-color: #443355")
+        self.code.setStyleSheet("background-color: #c75000")
         self.code.setGeometry(40, 20, 140, 30)
 
         self.btn3 = QPushButton("Назад", self)
-        self.btn3.setStyleSheet("background-color: #443355")
+        self.btn3.setStyleSheet("background-color: #b57a0d")
         self.btn3.setGeometry(15, 110, 75, 30)
         self.btn3.clicked.connect(back04)
 
@@ -207,7 +207,7 @@ class SamMainWindow6(QMainWindow):
         self.text_in = QTextEdit(self.frame)
         self.text_in.setGeometry(0, 0, 500, 455)
         self.text_in.setPlainText("Введите текст...")
-        self.frame.setStyleSheet("background-color: #443355")
+        self.frame.setStyleSheet("background-color: #999999")
 
         self.lbl1 = QLabel("Введите код:", self)
         self.lbl1.move(542, 25)
@@ -216,7 +216,7 @@ class SamMainWindow6(QMainWindow):
         self.lbl2.setGeometry(535, 125, 150, 30)
 
         self.code = QLineEdit(self)
-        self.code.setStyleSheet("background-color: #443355")
+        self.code.setStyleSheet("background-color: #c75000")
         self.code.setGeometry(520, 50, 125, 30)
 
         self.btn1 = QPushButton("Назад", self)
@@ -227,8 +227,8 @@ class SamMainWindow6(QMainWindow):
         self.btn1.clicked.connect(back05)
         self.btn2.clicked.connect(update_file)
 
-        self.btn1.setStyleSheet("background-color: #443355")
-        self.btn2.setStyleSheet("background-color: #443355")
+        self.btn1.setStyleSheet("background-color: #b57a0d")
+        self.btn2.setStyleSheet("background-color: #b57a0d")
 
         self.btn1.move(5, 465)
         self.btn2.move(545, 465)
@@ -245,7 +245,7 @@ class SamInstruction(QMainWindow):
         self.frame.setGeometry(5, 5, 640, 455)
         self.text_in = QTextEdit(self.frame)
         self.text_in.setGeometry(0, 0, 640, 455)
-        self.frame.setStyleSheet("background-color: #443355")
+        self.frame.setStyleSheet("background-color: #999999")
         self.text_in.setReadOnly(True)
         self.text_in.setPlainText("1. Опция \"Создать и зашифровать файл\". Здесь вы можете ввести текст, после чего "
                                   "вы сможете его тут же зашифровать и сохранить получившийся шифр в файл.\n\n"
@@ -276,7 +276,7 @@ class SamInstruction(QMainWindow):
 
         self.btn1.clicked.connect(back00)
 
-        self.btn1.setStyleSheet("background-color: #443355")
+        self.btn1.setStyleSheet("background-color: #b57a0d")
 
         self.btn1.move(5, 465)
 
