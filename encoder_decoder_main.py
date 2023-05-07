@@ -58,7 +58,7 @@ class SamMainWindow2(QMainWindow):
         self.frame.setGeometry(5, 5, 500, 455)
         self.text_in = QTextEdit(self.frame)
         self.text_in.setGeometry(0, 0, 500, 455)
-        self.text_in.setPlainText("Введите текст...")
+        self.text_in.setPlaceholderText("Введите текст...")
         self.frame.setStyleSheet("background-color: #999999")
 
         self.lbl1 = QLabel("Введите код:", self)
@@ -70,6 +70,7 @@ class SamMainWindow2(QMainWindow):
         self.code = QLineEdit(self)
         self.code.setStyleSheet("background-color: #c75000")
         self.code.setGeometry(520, 50, 125, 30)
+        self.code.setMaxLength(17)
 
         self.x_num = QLineEdit(self)
         self.x_num.setStyleSheet("background-color: #c75000")
@@ -107,6 +108,7 @@ class SamMainWindow3(QMainWindow):
         self.code = QLineEdit(self)
         self.code.setStyleSheet("background-color: #c75000")
         self.code.setGeometry(520, 50, 125, 30)
+        self.code.setMaxLength(17)
 
         self.btn1 = QPushButton("Назад", self)
         self.btn2 = QPushButton("Открыть", self)
@@ -145,6 +147,7 @@ class SamMainWindow4(QMainWindow):
         self.code = QLineEdit(self)
         self.code.setStyleSheet("background-color: #c75000")
         self.code.setGeometry(40, 20, 140, 30)
+        self.code.setMaxLength(17)
 
         self.x_num_l = QLabel("X-число:", self)
         self.x_num_l.setGeometry(12, 65, 80, 30)
@@ -157,9 +160,6 @@ class SamMainWindow4(QMainWindow):
         self.btn3.setStyleSheet("background-color: #b57a0d")
         self.btn3.setGeometry(15, 110, 75, 30)
         self.btn3.clicked.connect(back03)
-
-        self.line_ed = QLineEdit(self)
-        self.line_ed.move(80, 160)
 
 
 class SamMainWindow5(QMainWindow):
@@ -186,14 +186,12 @@ class SamMainWindow5(QMainWindow):
         self.code = QLineEdit(self)
         self.code.setStyleSheet("background-color: #c75000")
         self.code.setGeometry(40, 20, 140, 30)
+        self.code.setMaxLength(17)
 
         self.btn3 = QPushButton("Назад", self)
         self.btn3.setStyleSheet("background-color: #b57a0d")
         self.btn3.setGeometry(15, 110, 75, 30)
         self.btn3.clicked.connect(back04)
-
-        self.line_ed = QLineEdit(self)
-        self.line_ed.move(80, 160)
 
 
 class SamMainWindow6(QMainWindow):
@@ -206,7 +204,7 @@ class SamMainWindow6(QMainWindow):
         self.frame.setGeometry(5, 5, 500, 455)
         self.text_in = QTextEdit(self.frame)
         self.text_in.setGeometry(0, 0, 500, 455)
-        self.text_in.setPlainText("Введите текст...")
+        self.text_in.setPlaceholderText("Введите текст...")
         self.frame.setStyleSheet("background-color: #999999")
 
         self.lbl1 = QLabel("Введите код:", self)
@@ -218,11 +216,12 @@ class SamMainWindow6(QMainWindow):
         self.code = QLineEdit(self)
         self.code.setStyleSheet("background-color: #c75000")
         self.code.setGeometry(520, 50, 125, 30)
+        self.code.setMaxLength(17)
 
         self.btn1 = QPushButton("Назад", self)
         self.btn2 = QPushButton("Дополнить файл", self)
-        self.chbtn0 = QCheckBox(self)
-        self.chbtn0.setChecked(True)
+        self.check_btn0 = QCheckBox(self)
+        self.check_btn0.setChecked(True)
 
         self.btn1.clicked.connect(back05)
         self.btn2.clicked.connect(update_file)
@@ -232,7 +231,7 @@ class SamMainWindow6(QMainWindow):
 
         self.btn1.move(5, 465)
         self.btn2.move(545, 465)
-        self.chbtn0.move(575, 150)
+        self.check_btn0.move(575, 150)
 
 
 class SamInstruction(QMainWindow):
@@ -263,7 +262,7 @@ class SamInstruction(QMainWindow):
                                   "в зашифрованном тексте с новой строки или нет. По умолчанию перенос включен.\n\n"
                                   "6. Параметр x-числа имеет границы. Во-первых, это должно быть целочисленное "
                                   "значение. Во-вторых, число должно быть в "
-                                  "диапозоне от 1 до 100 включительно. Во всех иных случаях будет ошибка. "
+                                  "диапазоне от 1 до 100 включительно. Во всех иных случаях будет ошибка. "
                                   "Само x-число запоминать не нужно.\n\n"
                                   "7. Кодом могут быть цифры, буквы, некоторые символы, слово, несколько слов и т.д. "
                                   "Выбор кодового слова по большей части мало чем ограничивается. "
@@ -287,7 +286,7 @@ def create_file():
         QMessageBox.critical(window01, "Неверные данные", "Вы ввели некорректные данные.")
         return
     if int(x_num) > 100 or int(x_num) < 1:
-        QMessageBox.critical(window03, "Неверные данные", "x-число должно быть в диапозоне от 1 до 101.")
+        QMessageBox.critical(window03, "Неверные данные", "x-число должно быть в диапазоне от 1 до 101.")
         return
     path, b_p = QFileDialog.getSaveFileName(window01, "Создать и зашифровать файл", first_path, "Text File (*.txt)")
     if b_p:
@@ -317,7 +316,7 @@ def read_coded_file():
         file = open(path, "r", encoding='utf-8')
         try:
             code_source = [int(i, 2) for i in file.readline()[:-1].split()]
-        except:
+        except ValueError:
             QMessageBox.critical(window02, "Что-то пошло не так", "Неверный или повреждённый файл.")
             return
         x_num = int((int(file.readline()[:-1], 2) + 1799) / 1824)
@@ -340,7 +339,7 @@ def code_file():
         QMessageBox.critical(window03, "Неверные данные", "Вы ввели некорректные данные.")
         return
     if int(x_num) > 100 or int(x_num) < 1:
-        QMessageBox.critical(window03, "Неверные данные", "x-число должно быть в диапозоне от 1 до 101.")
+        QMessageBox.critical(window03, "Неверные данные", "x-число должно быть в диапазоне от 1 до 101.")
         return
     if window03.using_file == "":
         QMessageBox.critical(window03, "Не указан файл", "Вы не указали путь к файлу.")
@@ -375,7 +374,7 @@ def decode_file():
     file = open(window04.using_file, "r", encoding='utf-8')
     try:
         code_source = [int(i, 2) for i in file.readline()[:-1].split()]
-    except:
+    except ValueError:
         QMessageBox.critical(window04, "Что-то пошло не так", "Неверный или повреждённый файл.")
         return
     x_num = int((int(file.readline()[:-1], 2) + 1799) / 1824)
@@ -405,7 +404,7 @@ def update_file():
         file = open(path, "r", encoding='utf-8')
         try:
             code_source = [int(i, 2) for i in file.readline()[:-1].split()]
-        except:
+        except ValueError:
             QMessageBox.critical(window02, "Что-то пошло не так", "Неверный или повреждённый файл.")
             return
         x_num = int((int(file.readline()[:-1], 2) + 1799) / 1824)
@@ -417,7 +416,7 @@ def update_file():
             return
         file.close()
         file0 = open(path, "a", encoding='utf-8')
-        if window05.chbtn0.isChecked():
+        if window05.check_btn0.isChecked():
             file0.write(code_it("\n", code, x_num))
         file0.write(code_it(window05.text_in.toPlainText(), code, x_num))
         file0.close()
@@ -431,7 +430,7 @@ def choose_file1():
                                                          "Text File (*.txt)")
 
 def choose_file2():
-    window04.using_file, _ = QFileDialog.getOpenFileName(window04, "Укажите файл для зашифровки", first_path,
+    window04.using_file, _ = QFileDialog.getOpenFileName(window04, "Укажите файл для расшифровки", first_path,
                                                          "Text File (*.txt)")
 
 
@@ -445,7 +444,7 @@ def back01():
     main_window.show()
     stack.setFixedSize(310, 470)
     window01.hide()
-    window01.text_in.setPlainText("Введите текст...")
+    window01.text_in.clear()
     window01.code.setText(str())
     window01.x_num.setText(str())
 
@@ -515,9 +514,9 @@ def back05():
     main_window.show()
     stack.setFixedSize(310, 470)
     window05.hide()
-    window05.text_in.setPlainText("Введите текст...")
+    window05.text_in.clear()
     window05.code.setText(str())
-    window05.chbtn0.setChecked(True)
+    window05.check_btn0.setChecked(True)
 
 
 multiples = (5, 18, 9, 4, 6, 11, 8, 14, 22, 31, 28, 20, 10, 6, 15, 3, 2, 13)
